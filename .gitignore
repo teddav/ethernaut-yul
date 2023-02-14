@@ -1,0 +1,11 @@
+/node_modules/
+/typechain/
+/artifacts/
+/cache/
+/cache-forge/
+/cache-hh/
+/out/
+
+/broadcast
+
+/.env

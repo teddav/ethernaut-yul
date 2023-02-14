@@ -1,0 +1,26 @@
+[profile.default]
+src = 'contracts'
+out = 'out'
+test = 'test/foundry'
+script = 'script/foundry'
+libs = ['lib', 'node_modules']
+cache_path = 'cache-forge'
+gas_reports = ["*"]
+
+remappings = [
+    '@openzeppelin/=node_modules/@openzeppelin/',
+    'hardhat/=node_modules/hardhat/',
+]
+
+# ffi = true
+fs_permissions = [{ access = "read", path = ".env"}]
+
+[fuzz]
+runs = 500
+
+[invariant]
+runs = 500
+
+[rpc_endpoints]
+local = "${LOCAL_RPC}"
+goerli = "${GOERLI_RPC}"
