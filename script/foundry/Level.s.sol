@@ -1,17 +1,15 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.13;
+pragma solidity ^0.8.18;
 
 import { console } from "forge-std/Script.sol";
-import { EthernautScript } from "./Ethernaut.sol";
+import { EthernautScript } from "./Ethernaut.s.sol";
 
-interface Instance {
-    function abc() public;
-}
+interface Instance {}
 
 contract LevelScript is EthernautScript {
     // Update those values:
-    string network = ""; // local / goerli
-    address level = 0x; // level address
+    string network = "local"; // local / goerli
+    address level = address(0); // level address
 
     Instance instance;
 
@@ -26,11 +24,14 @@ contract LevelScript is EthernautScript {
         console.log("-> instance:", address(instance));
     }
 
-    function run() public {
-        // Script to complete level
-        // ...
+    function baseVersion() internal {}
 
-        // Submit
+    function yulVersion() internal {}
+
+    function run() public {
+        baseVersion();
+        // yulVersion();
+
         submitLevelInstance(payable(address(instance)), level);
         vm.stopBroadcast();
     }

@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.17;
+pragma solidity ^0.8.18;
 
 import "forge-std/Script.sol";
 import { Vm } from "forge-std/Vm.sol";
@@ -42,7 +42,7 @@ contract EthernautScript is Script {
         return instance;
     }
 
-    function submitLevelInstance(address payable _instance, address _level) public returns (bool) {
+    function submitLevelInstance(address payable _instance, address _level) public {
         vm.expectEmit(true, true, true, false);
         emit LevelCompletedLog(player, _instance, _level);
         ethernaut.submitLevelInstance(_instance);
