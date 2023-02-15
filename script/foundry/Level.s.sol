@@ -4,7 +4,9 @@ pragma solidity ^0.8.18;
 import { console } from "forge-std/Script.sol";
 import { EthernautScript } from "./Ethernaut.s.sol";
 
-interface Instance {}
+interface Instance {
+    function owner() external view returns (address);
+}
 
 contract LevelScript is EthernautScript {
     // Update those values:
