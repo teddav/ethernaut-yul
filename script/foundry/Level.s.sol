@@ -26,7 +26,9 @@ contract LevelScript is EthernautScript {
         console.log("-> instance:", address(instance));
     }
 
-    function baseVersion() internal {}
+    function baseVersion() internal {
+        console.log("ok");
+    }
 
     function yulVersion() internal {}
 
@@ -34,7 +36,7 @@ contract LevelScript is EthernautScript {
         baseVersion();
         // yulVersion();
 
-        submitLevelInstance(payable(address(instance)), level);
-        vm.stopBroadcast();
+        // submitLevelInstance(payable(address(instance)), level);
+        // vm.stopBroadcast();
     }
 }
