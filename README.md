@@ -1,10 +1,25 @@
-# Boilerplate for testing code
+# Ethernaut challenges
 
-To be improved...
+Main goal is to improve my skills with Yul and teach others.
 
-# Tests
+https://ethernaut.openzeppelin.com/
+by [OpenZeppelin](https://twitter.com/OpenZeppelin) and [Ξthernaut](https://twitter.com/the_ethernaut)
 
-## Foundry
+## Interesting Yul code
+You'll find those codes in multiple places.
+
+### Get a function signature
+test/foundry/1_Fallback.t.sol
+```testFuncSignature()```
+### Deploy a contract
+test/foundry/4_Telephone.t.sol
+```testCreateFullYul()```
+### Revert with a string
+contracts/9_King.sol#L39
+
+## Tests
+
+### Foundry
 
 ```bash
 forge test -mc ExampleTest
@@ -15,14 +30,14 @@ forge test -vvvv
 forge test --debug
 ```
 
-## Hardhat
+### Hardhat
 
 ```bash
 yarn hardhat run script/xxx.ts
 nodemon --watch script/xxx.ts --exec "yarn hardhat run script/xxx.ts"
 ```
 
-# Scripts
+## Scripts
 
 ```bash
 forge script script/ExampleScript.s.sol -f http://localhost:8545

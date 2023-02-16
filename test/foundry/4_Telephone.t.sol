@@ -36,7 +36,7 @@ contract TelephoneTest is Test {
         console.logBytes32(mem);
     }
 
-    function testCreate1() public {
+    function testCreate() public {
         bytes memory creationCode = type(ToDeploy).creationCode;
         bytes memory creationCodeWithArg = abi.encodePacked(creationCode, abi.encode(bob));
 
@@ -49,7 +49,7 @@ contract TelephoneTest is Test {
         console.log(bob);
     }
 
-    function testCreate2() public {
+    function testCreateFullYul() public {
         bytes memory creationCode = type(ToDeploy).creationCode;
         address toDeploy;
 
