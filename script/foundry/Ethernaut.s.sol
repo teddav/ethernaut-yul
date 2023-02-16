@@ -32,10 +32,10 @@ contract EthernautScript is Script {
         player = vm.addr(pk);
     }
 
-    function createLevelInstance(address _level) public returns (address payable) {
+    function createLevelInstance(address _level, uint256 value) public returns (address payable) {
         vm.recordLogs();
 
-        ethernaut.createLevelInstance(Level(_level));
+        ethernaut.createLevelInstance{ value: value }(Level(_level));
 
         Vm.Log[] memory entries = vm.getRecordedLogs();
         address payable instance = payable(address(uint160(uint256(entries[0].topics[2]))));

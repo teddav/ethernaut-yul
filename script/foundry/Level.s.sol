@@ -22,7 +22,7 @@ contract LevelScript is EthernautScript {
         vm.createSelectFork(network);
         vm.startBroadcast(pk);
 
-        instance = Instance(createLevelInstance(level));
+        instance = Instance(createLevelInstance(level, 0));
         console.log("-> instance:", address(instance));
     }
 
