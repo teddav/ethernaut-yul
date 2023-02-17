@@ -2,7 +2,7 @@
 pragma solidity ^0.8.0;
 
 import { console } from "forge-std/console.sol";
-import { EthernautTest } from "./EthernautTest.t.sol";
+import { EthernautTest } from "./EthernautTest.sol";
 
 contract TokenTest is EthernautTest {
     function setUp() public override {
