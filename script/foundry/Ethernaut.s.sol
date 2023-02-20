@@ -36,9 +36,17 @@ contract EthernautScript is Script {
         vm.recordLogs();
 
         ethernaut.createLevelInstance{ value: value }(Level(_level));
+        address payable instance;
 
         Vm.Log[] memory entries = vm.getRecordedLogs();
-        address payable instance = payable(address(uint160(uint256(entries[0].topics[2]))));
+        for (uint256 i = 0; i < entries.length; i++) {
+            if (entries[i].topics[0] == keccak256("LevelInstanceCreatedLog(address,address,address)")) {
+                instance = payable(address(uint160(uint256(entries[i].topics[2]))));
+                break;
+            }
+        }
+
+        require(instance != address(0) && instance != player);
         return instance;
     }
 
