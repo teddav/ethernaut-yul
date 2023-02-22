@@ -12,7 +12,7 @@ interface Instance {
     function setSolver(address _solver) external;
 }
 
-contract LevelScript is EthernautScript {
+contract MagicNumberScript is EthernautScript {
     string network = "goerli";
     address level = 0xFe18db6501719Ab506683656AAf2F80243F8D0c0;
 
