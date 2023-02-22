@@ -30,11 +30,15 @@ contract EthernautScript is Script {
         ethernaut = Ethernaut(0xD2e5e0102E55a5234379DD796b8c641cd5996Efd);
         pk = vm.envUint("PRIVATE_KEY");
         player = vm.addr(pk);
+
+        vm.label(address(ethernaut), "Ethernaut");
+        vm.label(player, "Player");
     }
 
     function createLevelInstance(address _level, uint256 value) public returns (address payable) {
         vm.recordLogs();
 
+        vm.label(_level, "Level");
         ethernaut.createLevelInstance{ value: value }(Level(_level));
         address payable instance;
 
