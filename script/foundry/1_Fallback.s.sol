@@ -72,7 +72,7 @@ contract FallbackScript is EthernautScript {
             }
 
             // check balance
-            if iszero(iszero(balance(dest))) {
+            if balance(dest) {
                 revert(0, 0)
             }
 

@@ -59,7 +59,7 @@ contract RecoveryScript is EthernautScript {
             if iszero(success) {
                 revert(0, 0)
             }
-            if iszero(iszero(balance(simpleToken))) {
+            if balance(simpleToken) {
                 revert(0, 0)
             }
         }

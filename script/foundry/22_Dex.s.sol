@@ -108,7 +108,7 @@ contract DexScript is EthernautScript {
 
             } {
                 let amount := balanceOf(fromToken, sload(player.slot))
-                if iszero(iszero(gt(amount, balanceOf(fromToken, _instance)))) {
+                if gt(amount, balanceOf(fromToken, _instance)) {
                     amount := balanceOf(fromToken, _instance)
                 }
 

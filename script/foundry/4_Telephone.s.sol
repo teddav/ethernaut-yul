@@ -64,7 +64,7 @@ contract TelephoneScript is EthernautScript {
             let owner := sload(player.slot)
 
             // before: we check that the `owner` is not already `player`
-            if iszero(iszero(eq(getOwner(sload(instance.slot)), owner))) {
+            if eq(getOwner(sload(instance.slot)), owner) {
                 revert(0, 0)
             }
 
