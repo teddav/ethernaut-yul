@@ -4,9 +4,6 @@
 
 **Solving the [Ethernaut challenges](https://ethernaut.openzeppelin.com/) with assembly**
 
-https://ethernaut.openzeppelin.com/
-by [OpenZeppelin](https://twitter.com/OpenZeppelin) and [Ξthernaut](https://twitter.com/the_ethernaut)
-
 Main goal of this repo is to improve my skills with Yul and teach others.  
 
 If you're new, go read this article to learn the basics of Solidity assembly: [Playing with Yul](https://dev.to/teddav/playing-with-yul-assembly-1i5h)  
