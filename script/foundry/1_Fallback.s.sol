@@ -79,7 +79,7 @@ contract FallbackScript is EthernautScript {
             // check owner
             mstore(0, "owner()")
             mstore(0, keccak256(0, 7))
-            success := call(gas(), dest, 0, 0, 4, 0, 0x20)
+            success := staticcall(gas(), dest, 0, 4, 0, 0x20)
             if iszero(success) {
                 revert(0, 0)
             }
